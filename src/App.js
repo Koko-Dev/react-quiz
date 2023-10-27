@@ -3,7 +3,7 @@ import DateCounter from './components/DateCounter';
 
 function App() {
   return (
-      <div>
+      <div className='app'>
         <DateCounter />
       </div> );
 }
