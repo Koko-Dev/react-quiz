@@ -7,12 +7,15 @@ function DateCounter() {
 
 //  This mutates the date object.
   const date = new Date( 'june 21, 2027' );
+  date.setDate( date.getDate() + count );
   
   const dec = function () {
+//    setCount( ( prevState ) => prevState - 1 );
     setCount( prevState => prevState - step );
   };
   
   const inc = function () {
+//    setCount( ( prevState ) => prevState + 1 );
     setCount( prevState => prevState + step );
   };
   
@@ -57,8 +60,7 @@ function DateCounter() {
         <div>
           <button onClick={ reset }>Reset</button>
         </div>
-      </div>
-  );
+      </div> );
 }
 
 
