@@ -10,12 +10,10 @@ function DateCounter() {
   date.setDate( date.getDate() + count );
   
   const dec = function () {
-//    setCount( ( prevState ) => prevState - 1 );
     setCount( prevState => prevState - step );
   };
   
   const inc = function () {
-//    setCount( ( prevState ) => prevState + 1 );
     setCount( prevState => prevState + step );
   };
   
