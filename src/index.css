@@ -36,6 +36,10 @@ body {
     justify-content: center;
 }
 
+.main {
+    width: 50rem;
+}
+
 .app {
     display: flex;
     flex-direction: column;

@@ -1,5 +1,4 @@
-export default function Main() {
+export default function Main( { children } ) {
   return (
-      <h1>Main</h1>
-  )
+      <main className='main'>{ children }</main> );
 }
