@@ -41,19 +41,14 @@ function DateCounter() {
   };
   
   const defineCount = function ( e ) {
-//    setCount( Number( e.target.value ) );
-//    dispatch( e.target.value );
-    
     dispatch( { type: 'setCount', payload: Number( e.target.value ) } );
   };
   
   const defineStep = function ( e ) {
-//    setStep( Number( e.target.value ) );
     dispatch( { type: 'setStep', payload: Number( e.target.value ) } );
   };
   
   const reset = function () {
-//    setCount( 0 );
     dispatch( { type: 'reset' } );
   };
   
