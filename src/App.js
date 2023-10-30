@@ -1,8 +1,18 @@
 import Header from './components/Header';
 import Main from './components/Main';
+import { useEffect } from 'react';
 
 
 function App() {
+
+//  Run the data on mount:  []
+  useEffect( function () {
+    fetch( 'http://localhost:8000/questions' )
+        .then( ( res ) => res.json() )
+        .then( ( data ) => console.log( data ) )
+        .catch( ( err ) => console.log( 'Error' ) );
+  }, [] );
+  
   return (
       <div className='app'>
         <h1>
