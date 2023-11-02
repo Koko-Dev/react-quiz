@@ -22,7 +22,7 @@ function reducer( state, action ) {
 }
 
 function App() {
-  const [ state, dispatch ] = useReducer( reducer, initialState );
+  const [ { questions, status }, dispatch ] = useReducer( reducer, initialState );
 
 //  Run the data on mount:  []
   useEffect( function () {
@@ -34,13 +34,12 @@ function App() {
   
   return (
       <div className='app'>
-        <h1>
-          <Header />
-          <Main>
-            <p>1/15</p>
-            <p>Questions</p>
-          </Main>
-        </h1>
+        <Header />
+        
+        <Main>
+          <p>1/15</p>
+          <p>Questions</p>
+        </Main>
       </div> );
 }
 
