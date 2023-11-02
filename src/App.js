@@ -3,6 +3,7 @@ import Main from './components/Main';
 import { useEffect, useReducer } from 'react';
 import Loader from './components/Loader';
 import Error from './components/Error';
+import StartScreen from './components/StartScreen';
 
 
 const initialState = {
@@ -41,6 +42,7 @@ function App() {
         <Main>
           { status === 'loading' && <Loader /> }
           { status === 'error' && <Error /> }
+          { status === 'ready' && <StartScreen /> }
         
         </Main>
       </div> );
