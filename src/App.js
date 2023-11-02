@@ -2,6 +2,7 @@ import Header from './components/Header';
 import Main from './components/Main';
 import { useEffect, useReducer } from 'react';
 import Loader from './components/Loader';
+import Error from './components/Error';
 
 
 const initialState = {
@@ -39,6 +40,7 @@ function App() {
         
         <Main>
           { status === 'loading' && <Loader /> }
+          { status === 'error' && <Error /> }
         
         </Main>
       </div> );
