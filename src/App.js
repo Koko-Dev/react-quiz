@@ -1,6 +1,7 @@
 import Header from './components/Header';
 import Main from './components/Main';
 import { useEffect, useReducer } from 'react';
+import Loader from './components/Loader';
 
 
 const initialState = {
@@ -37,8 +38,8 @@ function App() {
         <Header />
         
         <Main>
-          <p>1/15</p>
-          <p>Questions</p>
+          { status === 'loading' && <Loader /> }
+        
         </Main>
       </div> );
 }
