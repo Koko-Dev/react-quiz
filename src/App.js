@@ -28,6 +28,11 @@ function reducer( state, action ) {
 function App() {
   const [ { questions, status }, dispatch ] = useReducer( reducer, initialState );
 
+//  todo:  Calculate the length of the questions array;
+//   this will be displayed in StartScreen component's h2
+  const numQuestions = questions.length;
+
+
 //  Run the data on mount:  []
 //  Note: Run npm run server on a separate terminal
   useEffect( function () {
@@ -44,7 +49,7 @@ function App() {
         <Main>
           { status === 'loading' && <Loader /> }
           { status === 'error' && <Error /> }
-          { status === 'ready' && <StartScreen /> }
+          { status === 'ready' && <StartScreen numQuestions={ numQuestions } /> }
         
         </Main>
       </div> );
