@@ -28,6 +28,7 @@ function App() {
   const [ { questions, status }, dispatch ] = useReducer( reducer, initialState );
 
 //  Run the data on mount:  []
+//  Note: Run npm run server on a separate terminal
   useEffect( function () {
     fetch( 'http://localhost:8000/questions' )
         .then( ( res ) => res.json() )
