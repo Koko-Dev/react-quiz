@@ -12,7 +12,6 @@ const initialState = {
 //  'loading', 'error', 'ready', 'active', 'finished'
   status: 'loading'
 };
-
 function reducer( state, action ) {
   switch ( action.type ) {
     case 'dataReceived':
@@ -23,6 +22,7 @@ function reducer( state, action ) {
       throw new Error( 'Action unknown' );
   }
 }
+
 
 function App() {
   const [ { questions, status }, dispatch ] = useReducer( reducer, initialState );
