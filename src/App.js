@@ -33,7 +33,7 @@ function reducer( state, action ) {
 function App() {
   const [ { questions, status }, dispatch ] = useReducer( reducer, initialState );
 
-//  todo:  Calculate the length of the questions array;
+//  Todo:  Calculate the length of the questions array;
 //   this will be displayed in StartScreen component's h2
   const numQuestions = questions.length;
 
@@ -50,7 +50,6 @@ function App() {
   return (
       <div className='app'>
         <Header />
-        
         <Main>
           { status === 'loading' && <Loader /> }
           { status === 'error' && <Error /> }
@@ -60,7 +59,6 @@ function App() {
                   dispatch={ dispatch }
               /> ) }
           { status === 'active' && <Question /> }
-        
         </Main>
       </div> );
 }
