@@ -32,7 +32,7 @@ function reducer( state, action ) {
 
 
 function App() {
-  const [ { questions, status }, dispatch ] = useReducer( reducer, initialState );
+  const [ { questions, status, index }, dispatch ] = useReducer( reducer, initialState );
 
 //  Todo:  Calculate the length of the questions array;
 //   this will be displayed in StartScreen component's h2
