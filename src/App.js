@@ -11,8 +11,7 @@ const initialState = {
   questions: [],
 
 //  'loading', 'error', 'ready', 'active', 'finished'
-  status: 'loading',
-  index: 0,
+  status: 'loading', index: 0, answer: null,
 };
 
 function reducer( state, action ) {
@@ -25,6 +24,12 @@ function reducer( state, action ) {
       return {
         ...state, status: 'active'
       };
+    case 'newAnswer':
+      const question = state.questions.at( state.index );
+      return {
+        ...state,
+        answer: action.payload
+      }
     default:
       throw new Error( 'Action unknown' );
   }
@@ -32,7 +37,7 @@ function reducer( state, action ) {
 
 
 function App() {
-  const [ { questions, status, index }, dispatch ] = useReducer( reducer, initialState );
+  const [ { questions, status, index, answer }, dispatch ] = useReducer( reducer, initialState );
 
 //  Todo:  Calculate the length of the questions array;
 //   this will be displayed in StartScreen component's h2
@@ -59,7 +64,12 @@ function App() {
                   numQuestions={ numQuestions }
                   dispatch={ dispatch }
               /> ) }
-          { status === 'active' && <Question /> }
+          { status === 'active' && (
+              <Question
+                  question={ questions[ index ] }
+                  dispatch={ dispatch }
+                  answer={ answer }
+              /> ) }
         </Main>
       </div> );
 }
