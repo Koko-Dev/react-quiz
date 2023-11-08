@@ -11,7 +11,7 @@ const initialState = {
   questions: [],
 
 //  'loading', 'error', 'ready', 'active', 'finished'
-  status: 'loading', index: 0, answer: null,
+  status: 'loading', index: 0, answer: null, points: 0,
 };
 
 function reducer( state, action ) {
@@ -28,8 +28,12 @@ function reducer( state, action ) {
       const question = state.questions.at( state.index );
       return {
         ...state,
-        answer: action.payload
-      }
+        answer: action.payload,
+        points:
+            action.payload === question.correctOption
+            ? state.points + question.points
+            : state.points,
+      };
     default:
       throw new Error( 'Action unknown' );
   }
@@ -37,7 +41,7 @@ function reducer( state, action ) {
 
 
 function App() {
-  const [ { questions, status, index, answer }, dispatch ] = useReducer( reducer, initialState );
+  const [ { questions, status, index, answer, points }, dispatch ] = useReducer( reducer, initialState );
 
 //  Todo:  Calculate the length of the questions array;
 //   this will be displayed in StartScreen component's h2
