@@ -94,7 +94,7 @@ function App() {
           { status === 'finished' && (
               <FinishScreen
                   points={ points }
-                  dispatch={ dispatch() }
+                  dispatch={ dispatch }
               /> ) }
         </Main>
       </div> );

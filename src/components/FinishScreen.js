@@ -1,5 +1,4 @@
-export default function FinishScreen() {
+export default function FinishScreen( { points, dispatch } ) {
   return (
-      <div>Finish Screen</div>
-  )
+      <div>Finish Screen</div> );
 }
