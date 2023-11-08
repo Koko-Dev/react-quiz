@@ -29,10 +29,9 @@ function reducer( state, action ) {
       return {
         ...state,
         answer: action.payload,
-        points:
-            action.payload === question.correctOption
-            ? state.points + question.points
-            : state.points,
+        points: action.payload === question.correctOption
+                ? state.points + question.points
+                : state.points,
       };
     default:
       throw new Error( 'Action unknown' );
