@@ -6,6 +6,7 @@ import Error from './Error';
 import StartScreen from './StartScreen';
 import Question from './Question';
 import NextButton from './NextButton';
+import FinishScreen from './FinishScreen';
 
 
 const initialState = {
@@ -37,6 +38,10 @@ function reducer( state, action ) {
     case 'nextQuestion':
       return {
         ...state, index: state.index + 1, answer: null
+      };
+    case 'finish':
+      return {
+        ...state, status: 'finished',
       };
     default:
       throw new Error( 'Action unknown' );
@@ -86,6 +91,11 @@ function App() {
                     index={ index }
                 />
               </> ) }
+          { status === 'finished' && (
+              <FinishScreen
+                  points={ points }
+                  dispatch={ dispatch() }
+              /> ) }
         </Main>
       </div> );
 }
