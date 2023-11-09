@@ -7,6 +7,7 @@ import StartScreen from './StartScreen';
 import Question from './Question';
 import NextButton from './NextButton';
 import FinishScreen from './FinishScreen';
+import Progress from './Progress';
 
 
 const initialState = {
@@ -79,6 +80,12 @@ function App() {
               /> ) }
           { status === 'active' && (
               <>
+                <Progress
+                    index={ index }
+                    numQuestions={ numQuestions }
+                    points={ points }
+                    answer={ answer }
+                />
                 <Question
                     question={ questions[ index ] }
                     dispatch={ dispatch }
