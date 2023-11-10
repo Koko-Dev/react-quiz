@@ -105,6 +105,7 @@ function App() {
               <FinishScreen
                   points={ points }
                   dispatch={ dispatch }
+                  maxPossiblePoints={ maxPossiblePoints }
               /> ) }
         </Main>
       </div> );
