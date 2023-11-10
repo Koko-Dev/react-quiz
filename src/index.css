@@ -154,6 +154,18 @@ h4 {
     transform: translateX(2rem);
 }
 
+.progress {
+    margin-bottom: 4rem;
+    display: grid;
+    justify-content: space-between;
+    gap: 1.2rem;
+    grid-template-columns: auto auto;
+    font-size: 1.8rem;
+    color: var(--color-medium);
+}
+
+
+
 
 /* ********** */
 /* First counter example */
@@ -171,4 +183,3 @@ h4 {
     font-size: inherit;
     padding: 0.8rem;
 }
-
