@@ -51,12 +51,14 @@ function reducer( state, action ) {
 
 
 function App() {
-  const [ { questions, status, index, answer, points }, dispatch ] = useReducer( reducer, initialState );
-
-//  Todo:  Calculate the length of the questions array;
-//   this will be displayed in StartScreen component's h2
+  const [
+    { questions, status, index, answer, points }, dispatch
+  ] = useReducer( reducer, initialState );
+  
+  //  Todo:  Calculate the length of the questions array;
+  //   this will be displayed in StartScreen component's h2
   const numQuestions = questions.length;
-
+  const maxPossiblePoints = questions.reduce( ( prev, cur ) => prev + cur.points, 0 );
 
 //  Run the data on mount:  []
 //  Note: Run npm run server on a separate terminal
@@ -85,6 +87,7 @@ function App() {
                     numQuestions={ numQuestions }
                     points={ points }
                     answer={ answer }
+                    maxPossiblePoints={ maxPossiblePoints }
                 />
                 <Question
                     question={ questions[ index ] }
