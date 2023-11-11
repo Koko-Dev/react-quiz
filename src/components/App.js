@@ -44,6 +44,10 @@ function reducer( state, action ) {
       return {
         ...state, status: 'finished',
       };
+    case 'restart':
+      return {
+        ...state, questions: state.questions, status: 'ready'
+      };
     default:
       throw new Error( 'Action unknown' );
   }
