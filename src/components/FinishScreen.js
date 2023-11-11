@@ -14,9 +14,9 @@ export default function FinishScreen( { points, dispatch, maxPossiblePoints } ) 
       <>
         <p className='result'>
           <span>{ emoji }</span> You scored <strong>{ points }</strong> out of { maxPossiblePoints }
-          ({ Math.ceil( percentage ) }%)
+                                 ({ Math.ceil( percentage ) }%)
         </p>
-        <p className='highscore'></p>
-        <button className='btn btn-ui'></button>
+        <p className='highscore'>High Score</p>
+        <button className='btn btn-ui'>Restart Quiz</button>
       </> );
 }
