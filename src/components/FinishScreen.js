@@ -17,7 +17,7 @@ export default function FinishScreen( { points, dispatch, maxPossiblePoints } ) 
         </p>
         <p className='highscore'></p>
         <button className='btn btn-ui'></button>
-        );
+        
       
       
       </> );
