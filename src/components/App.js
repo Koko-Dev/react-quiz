@@ -14,7 +14,7 @@ const initialState = {
   questions: [],
 
 //  'loading', 'error', 'ready', 'active', 'finished'
-  status: 'loading', index: 0, answer: null, points: 0,
+  status: 'loading', index: 0, answer: null, points: 0, highscore: 0,
 };
 
 function reducer( state, action ) {
@@ -42,11 +42,16 @@ function reducer( state, action ) {
       };
     case 'finish':
       return {
-        ...state, status: 'finished',
+        ...state,
+        status: 'finished',
+        highscore: state.points > state.highscore
+                   ? state.points
+                   : state.highscore
+        
       };
     case 'restart':
       return {
-        ...state, questions: state.questions, status: 'ready'
+        ...state, questions: state.questions, status: 'ready', index: 0, answer: null, points: 0
       };
     default:
       throw new Error( 'Action unknown' );
@@ -56,7 +61,7 @@ function reducer( state, action ) {
 
 function App() {
   const [
-    { questions, status, index, answer, points }, dispatch
+    { questions, status, index, answer, points, highscore }, dispatch
   ] = useReducer( reducer, initialState );
   
   //  Todo:  Calculate the length of the questions array;
@@ -110,6 +115,7 @@ function App() {
                   points={ points }
                   dispatch={ dispatch }
                   maxPossiblePoints={ maxPossiblePoints }
+                  highscore={ highscore }
               /> ) }
         </Main>
       </div> );
