@@ -13,13 +13,12 @@ export default function FinishScreen( { points, dispatch, maxPossiblePoints } ) 
   return (
       <>
         <p className='result'>
-          <span>{emoji}</span> You scored <strong>{ points }</strong> out of { maxPossiblePoints }
+          <span>{ emoji }</span> You scored <strong>{ points }</strong> out of { maxPossiblePoints }
         </p>
         <p className='highscore'></p>
         <button className='btn btn-ui'></button>
-         );
-        
-        
+        );
+      
       
       </> );
 }
