@@ -47,7 +47,6 @@ function reducer( state, action ) {
         highscore: state.points > state.highscore
                    ? state.points
                    : state.highscore
-        
       };
     case 'restart':
       return {
