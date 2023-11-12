@@ -12,11 +12,13 @@ import Footer from './Footer';
 import Timer from './Timer';
 
 
+const SECS_PER_QUESTION = 30;
+
 const initialState = {
   questions: [],
 
 //  'loading', 'error', 'ready', 'active', 'finished'
-  status: 'loading', index: 0, answer: null, points: 0, highscore: 0,
+  status: 'loading', index: 0, answer: null, points: 0, highscore: 0, secondsRemaining: null,
 };
 
 function reducer( state, action ) {
@@ -27,7 +29,7 @@ function reducer( state, action ) {
       return { ...state, status: 'error' };
     case 'start':
       return {
-        ...state, status: 'active', index: 0, answer: null,
+        ...state, status: 'active', index: 0, answer: null, secondsRemaining: state.questions.length * SECS_PER_QUESTION
       };
     case 'newAnswer':
       const question = state.questions.at( state.index );
@@ -54,6 +56,14 @@ function reducer( state, action ) {
       return {
         ...state, questions: state.questions, status: 'ready', index: 0, answer: null, points: 0
       };
+    case 'tick':
+      return {
+        ...state,
+        secondsRemaining: state.secondsRemaining - 1,
+        status: state.secondsRemaining === 0
+                ? 'finished'
+                : state.status
+      };
     default:
       throw new Error( 'Action unknown' );
   }
@@ -62,7 +72,7 @@ function reducer( state, action ) {
 
 function App() {
   const [
-    { questions, status, index, answer, points, highscore }, dispatch
+    { questions, status, index, answer, points, highscore, secondsRemaining }, dispatch
   ] = useReducer( reducer, initialState );
   
   //  Todo:  Calculate the length of the questions array;
@@ -105,7 +115,10 @@ function App() {
                     answer={ answer }
                 />
                 <Footer>
-                  <Timer />
+                  <Timer
+                      dispatch={ dispatch }
+                      secondsRemaining={ secondsRemaining }
+                  />
                   <NextButton
                       dispatch={ dispatch }
                       answer={ answer }
