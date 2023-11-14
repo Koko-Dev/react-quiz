@@ -12,7 +12,7 @@ import Footer from './Footer';
 import Timer from './Timer';
 
 
-const SECS_PER_QUESTION = 2;
+const SECS_PER_QUESTION = 30;
 
 const initialState = {
   questions: [],
