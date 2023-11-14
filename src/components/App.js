@@ -18,7 +18,7 @@ const initialState = {
   questions: [],
 
 //  'loading', 'error', 'ready', 'active', 'finished'
-  status: 'loading', index: 0, answer: null, points: 0, highscore: 0, secondsRemaining: null,
+  status: 'loading', index: 0, answer: null, points: 0, highscore: 0, secondsRemaining: 10,
 };
 
 function reducer( state, action ) {
@@ -72,7 +72,9 @@ function reducer( state, action ) {
 
 function App() {
   const [
-    { questions, status, index, answer, points, highscore, secondsRemaining }, dispatch
+    {
+      questions, status, index, answer, points, highscore, secondsRemaining
+    }, dispatch
   ] = useReducer( reducer, initialState );
   
   //  Todo:  Calculate the length of the questions array;
