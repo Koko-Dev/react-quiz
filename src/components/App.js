@@ -12,7 +12,7 @@ import Footer from './Footer';
 import Timer from './Timer';
 
 
-const SECS_PER_QUESTION = 30;
+const SECS_PER_QUESTION = 2;
 
 const initialState = {
   questions: [],
@@ -29,7 +29,11 @@ function reducer( state, action ) {
       return { ...state, status: 'error' };
     case 'start':
       return {
-        ...state, status: 'active', index: 0, answer: null, secondsRemaining: state.questions.length * SECS_PER_QUESTION
+        ...state,
+        status: 'active',
+        index: 0,
+        answer: null,
+        secondsRemaining: state.questions.length * SECS_PER_QUESTION,
       };
     case 'newAnswer':
       const question = state.questions.at( state.index );
