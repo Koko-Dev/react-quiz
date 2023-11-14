@@ -58,7 +58,16 @@ function reducer( state, action ) {
       };
     case 'restart':
       return {
-        ...state, questions: state.questions, status: 'ready', index: 0, answer: null, points: 0
+        ...state,
+        questions: state.questions,
+        status: 'ready',
+        index: 0,
+        answer: null,
+        points: 0,
+        highscore: state.points > state.highscore
+                   ? state.points
+                   : state.highscore
+        
       };
     case 'tick':
       return {
