@@ -1,4 +1,8 @@
-export default function FinishScreen( { points, dispatch, maxPossiblePoints, highscore } ) {
+import { useQuiz } from '../contexts/QuizContext';
+
+
+export default function FinishScreen() {
+  const { points, dispatch, maxPossiblePoints, highscore } = useQuiz();
   const percentage = (
                          points / maxPossiblePoints ) * 100;
   
